@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechta Clips Bot</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #8A2BE2, #FF69B4);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    header {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .header-button {
+      background: white;
+      color: #8A2BE2;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .header-button:hover {
+      background: #FF69B4;
+      color: white;
+    }
+    .header-button img {
+      height: 16px;
+      margin-right: 5px;
+    }
+    .language-menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background: white;
+      color: #8A2BE2;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      padding: 10px 0;
+    }
+    .language-menu button {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      width: 100%;
+      text-align: left;
+      font-size: 16px;
+      cursor: pointer;
+      color: #8A2BE2;
+    }
+    .language-menu button:hover {
+      background: #FF69B4;
+      color: white;
+    }
+    h1 {
+      font-size: 36px;
+      margin: 10px 0;
+    }
+    p {
+      font-size: 18px;
+      margin: 10px 0 30px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .main-button {
+      background: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .main-button:hover {
+      background: #008cba;
+    }
+    .main-button img {
+      height: 16px;
+      margin-left: 10px;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <button class="header-button" id="language-button">
+        <img src="https://img.icons8.com/ios-glyphs/30/null/language.png" alt="Language"> <span id="language-label">Language</span>
+      </button>
+      <div class="language-menu" id="language-menu">
+        <button onclick="setLanguage('English')">English</button>
+        <button onclick="setLanguage('Русский')">Русский</button>
+        <button onclick="setLanguage('中文')">中文</button>
+        <button onclick="setLanguage('Deutsch')">Deutsch</button>
+        <button onclick="setLanguage('Français')">Français</button>
+      </div>
+    </div>
+    <button class="header-button" onclick="location.href='https://t.me/yarstarr'">
+      <img src="https://img.icons8.com/ios-glyphs/30/null/like--v1.png" alt="Support Author"> Support Author
+    </button>
+  </header>
+  <img src="Group%20515.png" alt="Mechta Clips Logo" class="logo">
+  <h1 id="main-title">Mechta Clips Bot</h1>
+  <p id="main-description">Your personal assistant for managing and organizing clips</p>
+  <a class="main-button" href="https://t.me/mechta_clips_bot" target="_blank" id="open-telegram-button">
+    Open in Telegram <img src="https://img.icons8.com/ios-glyphs/30/null/telegram-app.png" alt="Telegram">
+  </a>
+
+  <script>
+    const languageButton = document.getElementById('language-button');
+    const languageMenu = document.getElementById('language-menu');
+    const languageLabel = document.getElementById('language-label');
+    const mainTitle = document.getElementById('main-title');
+    const mainDescription = document.getElementById('main-description');
+
+    languageButton.addEventListener('click', () => {
+      languageMenu.style.display = languageMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    const translations = {
+      English: {
+        title: 'Mechta Clips Bot',
+        description: 'Your personal assistant for managing and organizing clips',
+        button: 'Open in Telegram'
+      },
+      Русский: {
+        title: 'Мечта Клипов Бот',
+        description: 'Ваш личный помощник для управления и организации клипов',
+        button: 'Открыть в Telegram'
+      },
+      中文: {
+        title: '梦想剪辑助手',
+        description: '管理和组织剪辑的个人助手',
+        button: '打开 Telegram'
+      },
+      Deutsch: {
+        title: 'Mechta Clips Bot',
+        description: 'Ihr persönlicher Assistent zur Verwaltung und Organisation von Clips',
+        button: 'In Telegram öffnen'
+      },
+      Français: {
+        title: 'Mechta Clips Bot',
+        description: 'Votre assistant personnel pour gérer et organiser les clips',
+        button: 'Ouvrir dans Telegram'
+      }
+    };
+
+    function setLanguage(language) {
+      languageLabel.textContent = language;
+      mainTitle.textContent = translations[language].title;
+      mainDescription.textContent = translations[language].description;
+      document.getElementById('open-telegram-button').textContent = translations[language].button;
+      languageMenu.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
